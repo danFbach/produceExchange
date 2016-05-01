@@ -1,0 +1,90 @@
+﻿@model ProduceExchange.Models.ClientModels
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ClientModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.clientFName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clientFName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clientLName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clientLName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.businessName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.businessName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clientPhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clientPhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clientEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clientEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clientAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clientAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clientZipcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clientZipcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.moneySpent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.moneySpent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clientComments)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clientComments)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

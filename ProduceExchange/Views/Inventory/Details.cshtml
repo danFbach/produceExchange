@@ -1,0 +1,60 @@
+﻿@using ProduceExchange.Models
+@model ProduceExchange.Models.InventoryModels
+
+@{
+    ViewBag.Title = "Details";
+    ApplicationDbContext db = new ApplicationDbContext();
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>InventoryModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.productType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => db.productTypeData.Find(model.productType).setProductTypes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.productCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => db.categoryData.Find(model.productCategory).categoryType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.productVariety)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productVariety)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.productQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.addDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.addDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
