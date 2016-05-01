@@ -1,13 +1,14 @@
 ﻿@model IEnumerable<ProduceExchange.Models.ClientModels>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Clients";
 }
 
-<h2>Index</h2>
+<h2 style="margin-left:15px;">@ViewBag.Title</h2>
+<h5 style="margin-left:25px;">View / Edit</h5>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <h6 style="text-align:right; padding-right:15px;">@Html.ActionLink("Create New", "Create") | @Html.ActionLink("Return to Inventory Home", "Home", "Inventory")</h6>
 </p>
 <table class="table">
     <tr>

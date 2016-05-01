@@ -1,13 +1,13 @@
 ﻿
 @{
-    ViewBag.Title = "Home";
+    ViewBag.Title = "Inventory Home";
 }
 
-<h2>Home</h2>
-<div class="row">
+<h2 style="margin-left:15px;">@ViewBag.Title</h2>
+<div class="row" style="margin-left:25px;">
     @using (Html.BeginForm("Index", "Inventory"))
     {
-        <div class="form-group">
+        <div class="form-group" style="padding-bottom:15px;">
             <div class="col-md-10">
                 <input type="submit" value="Go to Inventory" class="btn btn-default" />
             </div>
@@ -16,7 +16,7 @@
     <br />
     @using (Html.BeginForm("Index", "category"))
     {
-        <div class="form-group">
+        <div class="form-group" style="padding-bottom:15px;">
             <div class="col-md-10">
                 <input type="submit" value="Go to Categories" class="btn btn-default" />
             </div>
@@ -25,7 +25,7 @@
     <br />
     @using (Html.BeginForm("Index", "productType"))
     {
-        <div class="form-group">
+        <div class="form-group" style="padding-bottom:15px;">
             <div class="col-md-10">
                 <input type="submit" value="Go to Product Types" class="btn btn-default" />
             </div>

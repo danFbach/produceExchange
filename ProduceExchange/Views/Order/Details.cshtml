@@ -1,0 +1,90 @@
+﻿@model ProduceExchange.Models.OrderModels
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OrderModels</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.orderClient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orderClient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.orderType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orderType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.orderCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orderCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.orderVariety)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orderVariety)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.orderQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orderQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.orderDollars)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orderDollars)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.orderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.orderComment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orderComment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.orderStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orderStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

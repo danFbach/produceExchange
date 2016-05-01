@@ -1,0 +1,88 @@
+﻿@using ProduceExchange.Models
+@model IEnumerable<ProduceExchange.Models.OrderModels>
+
+@{
+    ViewBag.Title = "Order";
+    ApplicationDbContext db = new ApplicationDbContext();
+}
+
+<h2 style="padding-left:15px;">@ViewBag.Title</h2>
+<h5 style="padding-left:25px;">View / Edit</h5>
+<p>
+    <h6 style="text-align:right; padding-right:15px;">@Html.ActionLink("Create New", "Create") | @Html.ActionLink("Return to Inventory Home", "Home", "Inventory")</h6>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.orderClient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.orderType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.orderCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.orderVariety)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.orderQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.orderDollars)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.orderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.orderComment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.orderStatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    var client = db.clientData.Find(item.orderClient);
+    var type = db.productTypeData.Find(item.orderType);
+    var cat = db.categoryData.Find(item.orderCategory);
+    var variety = db.productData.Find(item.orderVariety);
+    string clientName = client.clientLName + ", " + client.clientFName + " | Business Name: " + client.businessName;
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => clientName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => type.setProductTypes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => cat.categoryType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => variety.productVariety)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.orderQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.orderDollars)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.orderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.orderComment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.orderStatus)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

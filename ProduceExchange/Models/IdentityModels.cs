@@ -33,5 +33,6 @@ namespace ProduceExchange.Models
         public DbSet<categoryModels> categoryData { get; set; }
         public DbSet<productTypeModels> productTypeData { get; set; }
         public DbSet<ClientModels> clientData { get; set; }
+        public DbSet<OrderModels> orderData { get; set; }
     }
 }
