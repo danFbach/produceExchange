@@ -206,21 +206,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201605010131118_new migration.cs" />
-    <Compile Include="Migrations\201605010131118_new migration.Designer.cs">
-      <DependentUpon>201605010131118_new migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605010144419_update to category.cs" />
-    <Compile Include="Migrations\201605010144419_update to category.Designer.cs">
-      <DependentUpon>201605010144419_update to category.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605011055494_client table.cs" />
-    <Compile Include="Migrations\201605011055494_client table.Designer.cs">
-      <DependentUpon>201605011055494_client table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605011804517_orders added.cs" />
-    <Compile Include="Migrations\201605011804517_orders added.Designer.cs">
-      <DependentUpon>201605011804517_orders added.cs</DependentUpon>
+    <Compile Include="Migrations\201605051522268_new database.cs" />
+    <Compile Include="Migrations\201605051522268_new database.Designer.cs">
+      <DependentUpon>201605051522268_new database.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -332,17 +320,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605010131118_new migration.resx">
-      <DependentUpon>201605010131118_new migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605010144419_update to category.resx">
-      <DependentUpon>201605010144419_update to category.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605011055494_client table.resx">
-      <DependentUpon>201605011055494_client table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605011804517_orders added.resx">
-      <DependentUpon>201605011804517_orders added.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605051522268_new database.resx">
+      <DependentUpon>201605051522268_new database.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -3,7 +3,7 @@ namespace ProduceExchange.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class newmigration : DbMigration
+    public partial class newdatabase : DbMigration
     {
         public override void Up()
         {
@@ -12,8 +12,42 @@ namespace ProduceExchange.Migrations
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
+                        productType = c.Int(nullable: false),
                         categoryType = c.String(nullable: false),
                         categoryDiscription = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.ClientModels",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        clientFName = c.String(nullable: false),
+                        clientLName = c.String(nullable: false),
+                        businessName = c.String(),
+                        clientPhoneNumber = c.String(),
+                        clientEmail = c.String(),
+                        clientAddress = c.String(),
+                        clientZipcode = c.Int(nullable: false),
+                        moneySpent = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        clientComments = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.OrderModels",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        orderClient = c.Int(nullable: false),
+                        orderType = c.Int(nullable: false),
+                        orderCategory = c.Int(nullable: false),
+                        orderVariety = c.Int(nullable: false),
+                        orderQuantity = c.Int(nullable: false),
+                        orderDollars = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        orderDate = c.DateTime(nullable: false),
+                        orderComment = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -129,6 +163,8 @@ namespace ProduceExchange.Migrations
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.productTypeModels");
             DropTable("dbo.InventoryModels");
+            DropTable("dbo.OrderModels");
+            DropTable("dbo.ClientModels");
             DropTable("dbo.categoryModels");
         }
     }

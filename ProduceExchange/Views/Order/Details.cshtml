@@ -1,7 +1,15 @@
-﻿@model ProduceExchange.Models.OrderModels
+﻿@using ProduceExchange.Models
+@model ProduceExchange.Models.OrderModels
 
 @{
     ViewBag.Title = "Details";
+    ApplicationDbContext db = new ApplicationDbContext();
+    var client = db.clientData.Find(Model.orderClient);
+    var productType = db.productTypeData.Find(Model.orderType);
+    var productCat = db.categoryData.Find(Model.orderCategory);
+    var productVariety = db.productData.Find(Model.orderVariety);
+
+    string clientName = client.clientLName + ", " + client.clientFName + " | Business: " + client.businessName;
 }
 
 <h2>Details</h2>
@@ -15,7 +23,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.orderClient)
+            @Html.DisplayFor(model => clientName)
         </dd>
 
         <dt>
@@ -23,7 +31,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.orderType)
+            @Html.DisplayFor(model => productType.setProductTypes)
         </dd>
 
         <dt>
@@ -31,7 +39,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.orderCategory)
+            @Html.DisplayFor(model => productCat.categoryType)
         </dd>
 
         <dt>
@@ -39,7 +47,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.orderVariety)
+            @Html.DisplayFor(model => productVariety.productVariety)
         </dd>
 
         <dt>

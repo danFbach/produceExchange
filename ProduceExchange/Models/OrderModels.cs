@@ -42,6 +42,6 @@ namespace ProduceExchange.Models
         public virtual string orderComment { get; set; }
 
         [Display(Name = "Status of Order")]
-        public virtual int orderStatus { get; set; }
+        public virtual Dictionary<int, string> orderStatus { get; set; }
     }
 }

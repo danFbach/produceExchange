@@ -7,13 +7,13 @@ namespace ProduceExchange.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class newmigration : IMigrationMetadata
+    public sealed partial class newdatabase : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(newmigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(newdatabase));
         
         string IMigrationMetadata.Id
         {
-            get { return "201605010131118_new migration"; }
+            get { return "201605051522268_new database"; }
         }
         
         string IMigrationMetadata.Source
