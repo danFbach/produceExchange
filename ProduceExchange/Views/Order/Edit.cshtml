@@ -1,7 +1,11 @@
-﻿@model ProduceExchange.Models.OrderModels
+﻿@using ProduceExchange.Controllers
+@using ProduceExchange.Models
+@model ProduceExchange.Models.OrderModels
 
 @{
     ViewBag.Title = "Edit";
+    ApplicationDbContext db = new ApplicationDbContext();
+    InventoryController inv = new InventoryController();
 }
 
 <h2>Edit</h2>
@@ -10,7 +14,11 @@
 @using (Html.BeginForm("Edit","Order"))
 {
     @Html.AntiForgeryToken()
-    
+    var client = db.clientData.Find(item.orderClient);
+    var type = db.productTypeData.Find(item.orderType);
+    var cat = db.categoryData.Find(item.orderCategory);
+    var variety = db.productData.Find(item.orderVariety);
+    string clientName = client.clientLName + ", " + client.clientFName + " | Business Name: " + client.businessName;
     <div class="form-horizontal">
         <h4>OrderModels</h4>
         <hr />
@@ -28,7 +36,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.orderType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.orderType, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.orderType, inv.getTypeDropDown(), "Select Product Type", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.orderType, "", new { @class = "text-danger" })
             </div>
         </div>

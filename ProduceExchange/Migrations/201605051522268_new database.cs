@@ -1,4 +1,4 @@
-namespace ProduceExchange.Migrations
+    namespace ProduceExchange.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
