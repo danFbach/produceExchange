@@ -155,6 +155,18 @@ namespace ProduceExchange.Controllers
             }
             return clientList;
         }
+        public string getStatus(int statusNumber)
+        {
+            if (statusNumber.Equals(0))
+            {
+                return "Complete";
+            }
+            else if (statusNumber.Equals(1))
+            {
+                return "Pending";
+            }
+            return null;
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -163,5 +175,6 @@ namespace ProduceExchange.Controllers
             }
             base.Dispose(disposing);
         }
+        
     }
 }

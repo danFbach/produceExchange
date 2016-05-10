@@ -8,27 +8,19 @@
     @using (Html.BeginForm("Index", "Inventory"))
     {
         <div class="form-group" style="padding-top:10px;text-align:center;">
-            <div class="row">
                 <input type="submit" value="Go to Inventory" class="btn btn-default" />
-            </div>
         </div>
     }
-    <br />
     @using (Html.BeginForm("Index", "category"))
     {
         <div class="form-group" style="text-align:center;">
-            <div class="row">
                 <input type="submit" value="Go to Categories" class="btn btn-default" />
-            </div>
         </div>
     }
-    <br />
     @using (Html.BeginForm("Index", "productType"))
     {
         <div class="form-group" style="text-align:center;">
-            <div class="row">
-                <input type="submit" value="Go to Product Types" class="btn btn-default" />
-            </div>
+                <input type="submit" value="Go to Product Types" class="btn btn-default" />     
         </div>
     }
 </div>

@@ -31,10 +31,12 @@ namespace ProduceExchange.Models
 
         [Display(Name = "Dollar Amount of Purchase")]
         [DataType(DataType.Currency)]
+        [DisplayFormat(DataFormatString = "{0:C}")]
         public virtual decimal orderDollars { get; set; }
 
         [Display(Name = "Date of Delivery/Order")]
         [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:d}")]
         public virtual DateTime orderDate { get; set; }
 
         [Display(Name = "Comments / Special Order")]
@@ -42,6 +44,6 @@ namespace ProduceExchange.Models
         public virtual string orderComment { get; set; }
 
         [Display(Name = "Status of Order")]
-        public virtual Dictionary<int, string> orderStatus { get; set; }
+        public virtual int orderStatus { get; set; }
     }
 }

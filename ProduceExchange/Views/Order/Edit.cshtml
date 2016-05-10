@@ -6,6 +6,7 @@
     ViewBag.Title = "Edit";
     ApplicationDbContext db = new ApplicationDbContext();
     InventoryController inv = new InventoryController();
+    OrderController ord = new OrderController();
 }
 
 <h2>Edit</h2>
@@ -14,13 +15,8 @@
 @using (Html.BeginForm("Edit","Order"))
 {
     @Html.AntiForgeryToken()
-    var client = db.clientData.Find(item.orderClient);
-    var type = db.productTypeData.Find(item.orderType);
-    var cat = db.categoryData.Find(item.orderCategory);
-    var variety = db.productData.Find(item.orderVariety);
-    string clientName = client.clientLName + ", " + client.clientFName + " | Business Name: " + client.businessName;
     <div class="form-horizontal">
-        <h4>OrderModels</h4>
+        <h4>Orders</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
@@ -28,15 +24,15 @@
         <div class="form-group">
             @Html.LabelFor(model => model.orderClient, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.orderClient, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.orderClient, ord.getClientDropDown(),"Select Client", new { @class = "form-control" } )
                 @Html.ValidationMessageFor(model => model.orderClient, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.orderType, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.orderType, htmlAttributes: new {  @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.orderType, inv.getTypeDropDown(), "Select Product Type", new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.orderType, ord.getProductTypeDropDown(),"Storage Type", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.orderType, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -44,7 +40,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.orderCategory, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.orderCategory, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.orderCategory, ord.getProductCategoryDropDown(), "Select Product Type", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.orderCategory, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -52,7 +48,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.orderVariety, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.orderVariety, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.orderVariety, ord.getVarietyDropDown(), "Product Variety", new { @class = "form-control"})
                 @Html.ValidationMessageFor(model => model.orderVariety, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -92,7 +88,11 @@
         <div class="form-group">
             @Html.LabelFor(model => model.orderStatus, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.orderStatus, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.orderStatus, new SelectList(new List<Object>
+                       {
+                       new { value = 0 , text = "Complete" },
+                       new { value = 1 , text = "Pending"  }
+                       }, "value", "text", 2), "Order Status", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.orderStatus, "", new { @class = "text-danger" })
             </div>
         </div>

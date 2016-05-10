@@ -1,9 +1,9 @@
-    namespace ProduceExchange.Migrations
+namespace ProduceExchange.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class newdatabase : DbMigration
+    public partial class update : DbMigration
     {
         public override void Up()
         {
@@ -48,6 +48,7 @@
                         orderDollars = c.Decimal(nullable: false, precision: 18, scale: 2),
                         orderDate = c.DateTime(nullable: false),
                         orderComment = c.String(),
+                        orderStatus = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             

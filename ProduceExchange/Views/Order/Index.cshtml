@@ -35,9 +35,6 @@
             @Html.DisplayNameFor(model => model.orderDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.orderComment)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.orderStatus)
         </th>
         <th></th>
@@ -48,41 +45,58 @@
     var type = db.productTypeData.Find(item.orderType);
     var cat = db.categoryData.Find(item.orderCategory);
     var variety = db.productData.Find(item.orderVariety);
+    string status = "";
     string clientName = client.clientLName + ", " + client.clientFName + " | Business Name: " + client.businessName;
+
+    if (item.orderStatus.Equals(1))
+    {
+        status = "Pending";
+    }
+    else if (item.orderStatus.Equals(0))
+    {
+        status = "Complete";
+    }
     <tr>
         <td>
             @Html.DisplayFor(modelItem => clientName)
         </td>
+
         <td>
             @Html.DisplayFor(modelItem => type.setProductTypes)
         </td>
+
         <td>
             @Html.DisplayFor(modelItem => cat.categoryType)
         </td>
+
         <td>
             @Html.DisplayFor(modelItem => variety.productVariety)
         </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.orderQuantity)
         </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.orderDollars)
         </td>
+
         <td>
             @Html.DisplayFor(modelItem => item.orderDate)
         </td>
+        
         <td>
-            @Html.DisplayFor(modelItem => item.orderComment)
+            @Html.DisplayFor(modelItem => status)
         </td>
+
         <td>
-            @Html.DisplayFor(modelItem => item.orderStatus)
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
+
     </tr>
+    
 }
 
 </table>

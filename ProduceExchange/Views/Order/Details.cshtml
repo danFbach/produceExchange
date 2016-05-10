@@ -1,4 +1,5 @@
 ﻿@using ProduceExchange.Models
+@using ProduceExchange.Controllers
 @model ProduceExchange.Models.OrderModels
 
 @{
@@ -8,17 +9,19 @@
     var productType = db.productTypeData.Find(Model.orderType);
     var productCat = db.categoryData.Find(Model.orderCategory);
     var productVariety = db.productData.Find(Model.orderVariety);
-
     string clientName = client.clientLName + ", " + client.clientFName + " | Business: " + client.businessName;
+    OrderController ord = new OrderController();
+    string status = ord.getStatus(Model.orderStatus);
 }
 
 <h2>Details</h2>
 
 <div>
+    
     <h4>OrderModels</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
+        <dt style="border-top:initial;">
             @Html.DisplayNameFor(model => model.orderClient)
         </dt>
 
@@ -85,9 +88,9 @@
         <dt>
             @Html.DisplayNameFor(model => model.orderStatus)
         </dt>
-
+        
         <dd>
-            @Html.DisplayFor(model => model.orderStatus)
+            @Html.DisplayFor(model => status)
         </dd>
 
     </dl>
