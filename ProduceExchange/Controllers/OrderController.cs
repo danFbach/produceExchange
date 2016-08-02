@@ -46,7 +46,7 @@ namespace ProduceExchange.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,orderClient,orderType,orderCategory,orderVariety,orderQuantity,orderDollars,orderDate,orderComment,orderStatus")] OrderModels orderModels)
+        public ActionResult Create([Bind(Include = "Id,orderCreateDate,orderClient,orderType,orderCategory,orderVariety,orderQuantity,orderDollars,orderDueDate,orderComment,orderStatus")] OrderModels orderModels)
         {
             if (ModelState.IsValid)
             {
